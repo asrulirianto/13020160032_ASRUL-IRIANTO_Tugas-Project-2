@@ -12,7 +12,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
-    TextInputLayout inputDiameter1,inputDiameter2;
+    TextInputLayout inputDiagonal1,inputDiagonal2;
     TextView hasilHitung;
     float d1,d2,hasil;
     @Override
@@ -23,29 +23,29 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        inputDiameter1 = findViewById(R.id.text_input_diameter1);
-        inputDiameter2 = findViewById(R.id.text_input_diameter2);
+        inputDiagonal1 = findViewById(R.id.text_input_diagonal1);
+        inputDiagonal2 = findViewById(R.id.text_input_diagonal2);
         hasilHitung = findViewById(R.id.hasilHitung);
     }
 
     public boolean validateInput1(){
-        String input = inputDiameter1.getEditText().getText().toString().trim();
+        String input = inputDiagonal1.getEditText().getText().toString().trim();
         if (input.isEmpty()){
-            inputDiameter1.setError("Field harus di isi");
+            inputDiagonal1.setError("Field harus di isi");
             return false;
         }else{
-            inputDiameter1.setError(null);
+            inputDiagonal1.setError(null);
             return true;
         }
     }
 
     public boolean validateInput2(){
-        String input = inputDiameter2.getEditText().getText().toString().trim();
+        String input = inputDiagonal2.getEditText().getText().toString().trim();
         if (input.isEmpty()){
-            inputDiameter2.setError("Field harus di isi");
+            inputDiagonal2.setError("Field harus di isi");
             return false;
         }else{
-            inputDiameter2.setError(null);
+            inputDiagonal2.setError(null);
             return true;
         }
     }
@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        d1 = Float.parseFloat(inputDiameter1.getEditText().getText().toString());
-        d2 = Float.parseFloat(inputDiameter2.getEditText().getText().toString());
+        d1 = Float.parseFloat(inputDiagonal1.getEditText().getText().toString());
+        d2 = Float.parseFloat(inputDiagonal2.getEditText().getText().toString());
         hasil = d1*d2/2;
         hasilHitung.setText("Luas = "+String.valueOf(hasil)+" cm");
     }
